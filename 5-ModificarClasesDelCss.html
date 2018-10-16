@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Modificar Clases de CSS</title>
+
+	<style>
+		.rojo {
+			background-color: red;
+		}
+
+
+	</style>
+</head>
+<body>
+
+	<div id="test">Click on me, para ponerme la clase rojo</div> <br>
+	<div id="test2" class="rojo">Click on me, para quitarme la clase rojo</div> <br>
+	<div id="test3">Click on me, para intercambiar entre tenerla y quitarla la clase rojo</div>
+
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		$(function(){
+
+			$(document).on("click", function(){
+				$('#test').addClass("rojo"); 
+				$('#test2').removeClass("rojo"); 
+				$('#test3').toggleClass("rojo");
+
+				if ($('#test3').hasClass('rojo')){
+					$('#test3').text("Soy Rojo :)");
+				}else{
+					$('#test3').text("NO soy Rojo :(");
+
+				}
+			});
+
+		});
+
+	</script>
+
+</body>
+</html>

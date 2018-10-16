@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Crear, Copiar y Remover Elementos</title>
+	
+	<style>
+		body {
+			background: #000;
+			color: #FFF;
+			margin: 0;
+			padding: 0;
+		}
+		header {
+			display: block;
+			margin: 0 auto 50px auto;
+			width: 365px;
+		}
+		ol {
+			display: block;
+			width: 500px;
+			margin: 0  auto;
+		}
+		ol li {
+			background: #088A29;
+			margin: 5px auto;
+			height: 30px;
+			width: 100%;
+		}
+		button{
+			display: block;
+			margin: 0 auto;
+			width: 80px;
+		}
+		div {
+			background: #FE2E64;
+			height: 50px;
+			display: block;
+			width: 400px;
+			margin: 2px auto;
+		}
+	</style>
+
+</head>
+<body>
+
+	<header>
+		<img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+placeholder">
+	</header>
+	
+	<ol>
+		<li>Elemento 1</li>
+		<li>Elemento 2</li>
+		<li>Elemento 3</li>
+		<li>Elemento 4</li>
+	</ol>
+
+	<button id="test">Ejecutar</button>
+
+	<div id="e1">
+		<p>Div 1</p>
+	</div>
+
+	<div id="e2">
+		<p>Div 2</p>
+	</div>
+	
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		$(function (){
+
+			$('button').on("click", function(){
+				//agragar elemento al final (primero selecciona el objeto y luego el destino)
+				// $('ol li:first').appendTo('ol:first'); //tomo el primer li y con appendTo lo agrego al final de la primera lista ol
+
+				// tambien agrega al final pero primero se indica el destino y luego el objeto a colocar
+				// $('ol:first').append($('ol li:first')); //estamos haciendo lo mismo de arriba
+
+				// Agregar elemento al principio
+				// $('ol li:last').prependTo('ol:first'); //muevo el ultimo li a la primera posicion
+
+				// $('ol:first').prepend($('ol li:last')); // Otra forma de agregar al pricipio
+
+				// insertar depues de otro elemento especifico
+				// $('ol li:first').insertAfter('#e1'); //movemos el primer li despues del div e1
+				// $('#e1').after($('ol li:first')); //hace lo mismo de arriba
+
+				// insertar antes de otro elemento especifico
+				// $('ol li:first').insertBefore('#e1'); //movemos el primer li antes del div e1
+				// $('#e1').before($('ol li:first')); //hace lo mismo de arriba
+
+				// copiar o clonar elemento
+				// var clon = $('ol li:first').clone();
+				// $('#e1').before(clon);	
+
+				// crear un nuevo elemento
+				var nuevo = $('<center><h1>Soy un titulo</h1></center>');
+				$('header').before(nuevo);
+
+				$('ol li:first').remove();
+
+
+			});	
+
+
+		});	
+
+	</script>
+
+</body>
+</html>

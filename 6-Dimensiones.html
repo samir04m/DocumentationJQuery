@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Dimensiones</title>
+
+	<style>
+		body {
+			background: #000;
+			margin: 0;
+			padding: 0;
+		}
+		header {
+			display: block;
+			margin: 0 auto;
+			width: 356px;
+		}
+		#e1, #e2 {
+			background: #0080FF;
+			display: block;
+			height: 100px;
+			margin: 20px auto;
+			width: 400px;
+		}
+
+		#e1 {
+			background-color: #FF0040;
+			height: 150px;
+		}
+		#e2 {
+			padding: 15px;
+			border-radius: 60px 0 60px 0;
+		}
+		p {
+			margin-left: 10px;
+		}
+	</style>
+</head>
+<body>
+
+	<header>
+		<img src="https://api.fnkr.net/testimg/400x400/00CED1/FFF/?text=img">
+	</header>
+
+	<div id="e1"></div>
+
+	<div id="e2">
+		<p>Hello Friends!</p>
+	</div>
+
+	<h4 style="color: white;">Revisar consola</h4>
+
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		$(function (){
+
+			// $('header img').width(); asi obtenemos el ancho en valor numeroco : 400
+			// $('header img').css('width'); asi obtenemos el ancho en string : 400px
+			$('header img').width(340); //asi se modifica el ancho
+			$('header img').height(150); //asi se modifica el alto
+
+			var posE1 = $('#e2 p').position(); //con esta no cuenta los margin ni padding
+			var offsetE1 = $('#e2 p').offset(); //este si cuenta los margin y padding
+			console.log("Div e2 p -> Pos left: "+posE1.left+". - pos top : "+posE1.top);
+			console.log("Div e2 p -> Pos left: "+offsetE1.left+". - pos top : "+offsetE1.top);
+		});	
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Selectores Multiples</title>
+</head>
+<body>
+	
+	<h4>Revisar Consola</h4>	
+
+	<div class="ejem1 cl1">
+		<p></p>
+	</div>
+
+	<div class="ejem1">
+		<span></span>
+	</div>
+
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	
+	<script type="text/javascript">
+
+		var seleccion; //se declara global para usarla fuera del evento ready
+		
+		$(function (){
+
+			var seleccion = $('.ejem1');
+
+			if (seleccion.length)
+				console.log("Existen "+seleccion.length+" elementos con la clase ejem1");
+			else 
+				console.log("No existen elementos con la clase ejem1");
+
+			seleccion.not('.cl1').text("Este elemento no tiene la clase cl1");
+
+			seleccion.has('p').text("Este elemento tiene un <p> en su contenido");
+
+			$('li').first().html('<b>Soy el primer elemento</b>'); //obtengo el primer elemento
+			$('li').eq(2).text('Soy el elemento 3'); //empiezan por cero
+
+
+		});	
+
+	</script>
+
+</body>
+</html>

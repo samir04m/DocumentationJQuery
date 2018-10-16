@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Metodo Attr</title>
+</head>
+<body>
+
+	<div id="prueba" class="pruebaClass"></div>
+	
+	<a href="http://www.github.com/">GitHub</a> <- Abre el link
+
+	<hr><h4>Revisar consola</h4>
+
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		$(function (){
+
+			$('#prueba').attr("class", "claseCambiada"); //modifico un atributo existente
+			// $('#prueba').removeAttr("class"); //remuevo un atributo
+			var claseDiv = $('#prueba').attr("class"); //obtengo la clase
+
+			$('#prueba').attr("class", function(){
+				var valor = "nombreClase";
+				return valor; //el atributo tomara el valor de lo que retorne la funcion
+			});
+
+			console.log("La clase del div es '" + claseDiv +"'");
+
+			$('a').on("click", function(e){
+				e.preventDefault(); //quitamos la funcion por defecto del a
+				var link = $(this).attr('href'); //obtenemos el link del a
+
+				var confirmacion = window.confirm("Esta seguro de salir de la pagina");
+				if (confirmacion){
+					location.href = link;
+				}else{
+					alert("Gracias por continuar con nosotros :)");
+				}
+			});
+
+		});	
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Metodos Utilitarios</title>
+
+	<style>
+		body {
+			background: #000;
+			color: #FFF;
+			margin: 0;
+			padding: 0;
+		}
+		header {
+			display: block;
+			margin: 0 auto 50px auto;
+			width: 365px;
+		}
+		ol {
+			display: block;
+			width: 500px;
+			margin: 0  auto;
+		}
+		ol li {
+			background: #088A29;
+			margin: 5px auto;
+			height: 30px;
+			width: 100%;
+		}
+		button{
+			display: block;
+			margin: 0 auto;
+			width: 80px;
+		}
+		div {
+			background: #FFF;
+			height: 50px;
+			display: block;
+			width: 400px;
+			margin: 2px auto;
+		}
+	</style>
+</head>
+<body>
+
+	<header>
+		<img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+placeholder">
+	</header>
+
+	<button id="test">Ejecutar</button>
+
+	<div id="e1">
+		Metodos Utilitarios
+	</div>
+
+	<h4 style="color: white;">Revisar consola</h4>
+
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		$(function (){
+				
+			var lista = ["Primero", "Segundo", "No mostrar", "Tercero"];
+
+			$.each(lista, function(indice, elemento){
+
+				if (elemento == 'No mostrar')
+					return true; //indica que salte a la siguente interaccion
+
+				console.log("Elemento "+indice+" -> "+elemento);
+			});
+
+			if ($.inArray("Primero", lista) !== -1) //si no esta en la lista devuelve -1
+				console.log("El elemento '"+lista[$.inArray("Primero", lista)]+"' esta en el indice "+$.inArray("Primero", lista))
+			else
+				console.log("No esta en el arreglo");
+			
+		});	
+
+	</script>
+
+</body>
+</html>

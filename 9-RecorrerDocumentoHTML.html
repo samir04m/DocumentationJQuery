@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Recorrer Documento HTML</title>
+</head>
+<body>
+	<h4>Revisar Consola</h4>
+	<div>
+		<article id="padre">
+			Hey Soy el padre
+			<div id="son">Soy el hijo</div>
+		</article>
+	</div>
+
+	<ul>
+		<li id="primero">Soy el primero</li>
+		<li>Soy el segundo</li>
+		<li>Tercero</li>
+	</ul>
+
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		$(function (){
+			// obtener elemento inmediatamente siguente
+			// var siguente = $('#primero').next(); 
+			// console.log(siguente.text());
+
+			// obtener elemento padre(contenerdor)
+			// var padre = $("#son").parent();
+			// console.log(padre.text());
+
+			// obtener elemento hijo(contenido dentro de si)
+			// var hijo = $('#padre').children();
+			// console.log(hijo.text()+" y esa es mi id="+hijo.attr("id"));
+
+			// Seleccionar a todo los hermanos, elementos que tienen el mismo padre
+			// var hermanosLi = $('#primero').siblings();
+			// console.log(hermanosLi);
+
+			// ciclo each para recorrer cada uno de los elementos
+			$('ul li').each(function(indice, elemento){
+				console.log("El elemento numero "+indice+" contiene el texto: "+ $(elemento).text());
+			});
+
+
+		});	
+
+	</script>
+
+</body>
+</html>

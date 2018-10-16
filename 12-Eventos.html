@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Eventos</title>
+
+	<style>
+		#caja1{
+			background: lightgrey;
+			border: 1px dashed grey;
+			height: 100px;
+			width: 300px;
+			margin-top: 10px;
+		}
+	</style>
+
+
+</head>
+<body>
+
+	<a href="www.google.com.co" id="linkGoogle">Google</a>
+	<br>
+	<a href="www.facebook.com" id="linkFacebook">Facebook</a>
+
+	<div id="caja1">
+		Hover me
+	</div>
+	<br>
+	<button id="btn">Solo ejecuta una vez</button>
+
+
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		$(function (){
+			
+			$('a').on("click", function (e){
+				e.preventDefault();
+				var aId = $(this).attr('id');
+				var aText = $(this).text();
+				console.log("Has clickeado el a con id="+aId+" y texto "+aText);
+			});
+
+			var bgColorCaja1, c=0;
+			
+			$('#caja1').mouseover(function(){ //tambien se puede $('#caja1').on('mouseover', function(){
+				c++;
+				bgColorCaja1 = $(this).css('background');
+				$(this).css('background', 'blue');
+			});
+
+			$('#caja1').mouseout(function(){
+				$(this).css('background', bgColorCaja1); 
+				if (c == 5) {
+					alert("Se desactivo la funcion hover");
+					$('#caja1').off('mouseover');
+				}
+			});	
+			
+			// solo se ejecuta una sola vez
+			$('#btn').one('click', function(){
+				alert("Solo me ejecuto una vez");
+			});
+
+			// no funciono
+			// $('#caja1').on({
+			// 	'mouseover':function(){
+			// 		bgColorCaja1 = $(this).css('background')
+			// 		$(this).css('background', bgColorCaja1) 
+			// 	},
+			// 	'mouseout':function(){
+			// 		$(this).css('background', bgColorCaja1) 
+			// 	}
+
+			// });
+			
+
+			// $("#caja1").hover(function(){
+			//   	bgColorCaja1 = $("#caja1").css("background-color");
+			//   	$("#caja1").css("background-color","red");
+			//  	},function(){
+			//   	$("#caja1").css("background-color", bgColorCaja1);
+			// });
+
+			
+		});	
+
+	</script>
+
+</body>
+</html>

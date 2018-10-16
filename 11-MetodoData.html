@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Template</title>
+</head>
+<body>
+	<h4>Revisar consola</h4>
+
+	<ul>
+		<li>Uno</li>
+		<li>Dos</li>
+		<li>Tres</li>
+	</ul>
+
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		$(function (){
+			//parametros $.data(elementoHTML, 'nombreDelAtributo', valorAtributo)
+			$('ul li').each(function(indice, elemento){
+				$.data(elemento, 'posicion', indice); //con tres parametros modifica
+			});
+
+			$('ul li').each(function(indice, elemento){
+				console.log($.data(elemento, 'posicion')); //con dos parametros lee
+			});
+			
+			
+		});	
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Efectos</title>
+
+	<style>
+		#caja {
+			background-color: grey;
+			height: 60vh;
+			width: 90%;
+			margin: 30px auto;
+		}
+		button {
+			margin: 0 10px;
+		}
+		h1{
+			display: none;
+		}
+		.titleSpace {
+			height: 100px;
+			overflow: hidden;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="titleSpace">
+		<h1>Titulo</h1>
+	</div>
+	
+	<button id="btnShow">Show</button>
+	<button id="btnHide">Hide</button>
+
+	<button id="btnSlideDown">SlideDown</button>
+	<button id="btnSlideUp">SlideUp</button>
+
+	<button id="btnFadeIn">FadeIn</button>
+	<button id="btnFadeOut">FadeOut</button>
+	
+	<button id="btnSlideToggle">SlideToggle</button>
+
+	<div id="caja"></div>
+
+
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		$(function (){
+
+			var caja = $('#caja');
+
+			$('#btnShow').click(function(){
+				caja.show();
+			});
+			$('#btnHide').click(function(){
+				caja.hide();
+			});
+			$('#btnSlideDown').click(function(){
+				caja.slideDown();
+			});
+			$('#btnSlideUp').click(function(){
+				caja.slideUp();
+			});
+			$('#btnFadeIn').click(function(){
+				caja.fadeIn(1000);
+			});
+			$('#btnFadeOut').click(function(){
+				caja.fadeOut(1000);
+			});
+			$('#btnSlideToggle').click(function(){
+				caja.slideToggle(1000);
+			});
+
+			// $('h1').fadeIn(2000);
+			$('h1').slideDown(2000);
+			
+		});	
+
+	</script>
+
+</body>
+</html>

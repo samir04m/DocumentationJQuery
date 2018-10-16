@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Getters and Setters</title>
+</head>
+<body>
+	<h4>Revisar consola</h4>
+	<h2>En JS los metodos set y get son el mismo</h2>
+
+	<p id="parrafo"><strong>Hola JQuery</strong></p>
+
+	<div id="prueba"></div>
+
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		$(function (){
+			var almacen = $('#parrafo').html();
+			console.log("html() "+almacen);
+
+			var almacen = $('#parrafo').text();
+			console.log("text() "+almacen);
+
+			$('#prueba').attr("class", "ejemplo");
+			var classDiv = $('#prueba').attr("class");
+			console.log("El div tiene la clase \""+classDiv+"\"");
+		});	
+
+	</script>
+
+</body>
+</html>

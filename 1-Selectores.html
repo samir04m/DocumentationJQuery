@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Selectores con JQuery</title>
+</head>
+<body>
+
+	<div id="prueba"></div>
+
+	<div class="prueba"></div>
+
+	<div class="miDiv">
+		<article>
+			<p>Hola JQuery</p>
+		</article>
+	</div>
+
+	<div>
+		<article>
+			<p>Hola JQuery</p>
+		</article>
+	</div>
+
+	<span id="texto1"></span> <br>
+	<span id="texto2"></span> <br>
+	<span id="texto3"></span> <br>
+	<span id="texto4">No fui modificado</span> <br>
+
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	
+	<script type="text/javascript">
+		// verificar si el documento esta todo cargardo 
+		// Tambien se puede con $(document).on("ready", function(){ --contenido-- });
+		$(function (){
+
+			$('#prueba').text('<h1>Hola, Fui modificado por id en JQuery</h1>');
+
+			$('.prueba').html('<h1>Hola, Fui modificado por class en JQuery</h1>');
+
+			$('div').css({
+				'background-color': 'lightgrey',
+			});
+
+			$('div.miDiv').css({
+				'background-color': 'grey',
+			});
+
+			$('div.miDiv article p').text("Fui modificado por JQuery");
+
+			$('#texto1, #texto2, #texto3').text("Provengo del jquery");
+		});	
+
+	</script>
+
+</body>
+</html>

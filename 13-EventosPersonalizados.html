@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Eventos Personalisados</title>
+</head>
+<body>
+	<h1>En consola indica que botón lo activó</h1>
+	<input type="checkbox" id="inputCheck"> Modificar ---
+	<button class="cambiar" id="btn1">Apagar</button>
+	<button class="cambiar" id="btn2">Apagar</button>
+
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		$(function (){
+			/*
+			// creacion del evento personalizado
+			$('#inputCheck').on("cambio", function(){
+
+				if (this.checked){
+					$('#inputCheck').removeAttr('checked');
+					$('.cambiar').text('Encender');
+				}else{
+					$('#inputCheck').attr('checked', 'checked');
+					$('.cambiar').text('Apagado');
+				}
+
+			});
+			// ejecutar el evento personalizado
+			$('.cambiar').on("click", function(){
+				$('#inputCheck').trigger('cambio');
+			})
+			*/
+
+			$('#inputCheck').on("cambio", function(evento, id){
+				console.log(id);
+				if (this.checked){
+					$('#inputCheck').removeAttr('checked');
+					$('.cambiar').text('Encender');
+				}else{
+					$('#inputCheck').attr('checked', 'checked');
+					$('.cambiar').text('Apagado');
+				}
+
+			});
+			// ejecutar el evento personalizado
+			$('.cambiar').on("click", function(){
+				$('#inputCheck').trigger('cambio', [$(this).attr('id')] );
+			})
+			
+		});	
+
+	</script>
+
+</body>
+</html>
